@@ -28,7 +28,7 @@ import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAccount;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.biz.realm.AbstractAuthorizingRealm;
-import org.apache.shiro.biz.realm.PrincipalRealmListener;
+import org.apache.shiro.biz.realm.AuthorizingRealmListener;
 import org.apache.shiro.biz.utils.StringUtils;
 import org.apache.shiro.biz.utils.SubjectUtils;
 import org.apache.shiro.pf4j.annotation.AuthzMapping;
@@ -55,7 +55,7 @@ public abstract class AuthorizingRealmExtensionPoint<T> extends AuthorizingRealm
 	private static final Logger LOG = LoggerFactory.getLogger(AbstractAuthorizingRealm.class);
 
 	//realm listeners
-	protected List<PrincipalRealmListener> realmsListeners;
+	protected List<AuthorizingRealmListener> realmsListeners;
 	private ThreadLocal<PrincipalRepositoryExtensionPoint<T>> THREAD_LOCAL = new ThreadLocal<PrincipalRepositoryExtensionPoint<T>>();
 	private PluginManager pluginManager;
 	    
@@ -125,11 +125,11 @@ public abstract class AuthorizingRealmExtensionPoint<T> extends AuthorizingRealm
 		
 		//调用事件监听器
 		if(getRealmsListeners() != null && getRealmsListeners().size() > 0){
-			for (PrincipalRealmListener realmListener : getRealmsListeners()) {
+			for (AuthorizingRealmListener realmListener : getRealmsListeners()) {
 				if(ex != null || null == info){
-					realmListener.onAuthenticationFail(token);
+					realmListener.onFailure(this, token, ex);
 				}else{
-					realmListener.onAuthenticationSuccess(info, SecurityUtils.getSubject().getSession());
+					realmListener.onSuccess(this, info, SecurityUtils.getSubject().getSession());
 				}
 			}
 		}
@@ -195,11 +195,11 @@ public abstract class AuthorizingRealmExtensionPoint<T> extends AuthorizingRealm
 		this.pluginManager = pluginManager;
 	}
 
-	public List<PrincipalRealmListener> getRealmsListeners() {
+	public List<AuthorizingRealmListener> getRealmsListeners() {
 		return realmsListeners;
 	}
 
-	public void setRealmsListeners(List<PrincipalRealmListener> realmsListeners) {
+	public void setRealmsListeners(List<AuthorizingRealmListener> realmsListeners) {
 		this.realmsListeners = realmsListeners;
 	}
 	
