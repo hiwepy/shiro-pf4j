@@ -26,14 +26,14 @@ import org.pf4j.ExtensionPoint;
 public interface AuthorizationExtensionPoint extends ExtensionPoint {
 
     /**
-     * Returns {@code true} if this filter should filter the specified request, {@code false} if it should let the
+     * <p>Returns {@code true} if this filter should filter the specified request, {@code false} if it should let the
      * request/response pass through immediately to the next element in the {@code FilterChain}.
-     * <p/>
-     * This default implementation merely returns the value of {@link #isEnabled() isEnabled()}, which is
+     * </p>
+     * <p>This default implementation merely returns the value of isEnabled(), which is
      * {@code true} by default (to ensure the filter always executes by default), but it can be overridden by
      * subclasses for request-specific behavior if necessary.  For example, a filter could be enabled or disabled
      * based on the request path being accessed.
-     * <p/>
+     * </p>
      * <b>Helpful Hint:</b> if your subclass extends {@link org.apache.shiro.web.filter.PathMatchingFilter PathMatchingFilter},
      * you may wish to instead override the
      * {@link org.apache.shiro.web.filter.PathMatchingFilter#isEnabled(javax.servlet.ServletRequest, javax.servlet.ServletResponse, String, Object)
@@ -68,11 +68,10 @@ public interface AuthorizationExtensionPoint extends ExtensionPoint {
     boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception;
 
     /**
-     * Returns <code>true</code> if the incoming request is a login request, <code>false</code> otherwise.
-     * <p/>
-     * The default implementation merely returns <code>true</code> if the incoming request matches the configured
-     * {@link #getLoginUrl() loginUrl} by calling
-     * <code>{@link #pathsMatch(String, String) pathsMatch(loginUrl, request)}</code>.
+     * <p>Returns <code>true</code> if the incoming request is a login request, <code>false</code> otherwise.
+     * </p>
+     * The default implementation merely returns <code>true</code> if the incoming request matches the configuredloginUrl by calling
+     * <code>pathsMatch(loginUrl, request)</code>.
      *
      * @param request  the incoming <code>ServletRequest</code>
      * @param response the outgoing <code>ServletResponse</code>
@@ -81,11 +80,11 @@ public interface AuthorizationExtensionPoint extends ExtensionPoint {
     boolean isLoginRequest(ServletRequest request, ServletResponse response);
     
     /**
-     * Processes requests where the subject was denied access as determined by the
+     * <p>Processes requests where the subject was denied access as determined by the
      * {@link #isAccessAllowed(javax.servlet.ServletRequest, javax.servlet.ServletResponse, Object) isAccessAllowed}
      * method, retaining the {@code mappedValue} that was used during configuration.
-     * <p/>
-     * This method immediately delegates to {@link #onAccessDenied(ServletRequest,ServletResponse)} as a
+     * </p>
+     * This method immediately delegates to onAccessDenied(ServletRequest,ServletResponse) as a
      * convenience in that most post-denial behavior does not need the mapped config again.
      *
      * @param request     the incoming <code>ServletRequest</code>
