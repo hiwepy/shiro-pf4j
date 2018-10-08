@@ -5,7 +5,7 @@
 
 	<groupId>com.github.vindell</groupId>
 	<artifactId>shiro-pf4j</artifactId>
-	<version>1.0.0.RELEASE</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<description>Shiro Extension Whith Pf4j</description>
 	<name>${project.groupId}:${project.artifactId}</name>
 	<url>https://github.com/vindell/${project.artifactId}</url>
