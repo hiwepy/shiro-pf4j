@@ -36,7 +36,7 @@ public class LoginLogoutTest {
 		SecurityUtils.setSecurityManager(securityManager);
 		// 3、得到Subject及创建用户名/密码身份验证Token（即用户身份/凭证）
 		Subject subject = SecurityUtils.getSubject();
-		ExtensionPointAuthenticationToken token = new ExtensionPointAuthenticationToken("zhang", "123");
+		ExtensionPointAuthenticationToken token = new ExtensionPointAuthenticationToken("zhang", "123", false);
 
 		try {
 			// 4、登录，即身份验证

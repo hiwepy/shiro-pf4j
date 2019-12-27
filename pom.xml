@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.github.vindell</groupId>
+	<groupId>com.github.hiwepy</groupId>
 	<artifactId>shiro-pf4j</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
 	<description>Shiro Extension Whith Pf4j</description>
@@ -27,7 +27,7 @@
 
 	<developers>
 		<developer>
-			<name>vindell</name>
+			<name>wandl</name>
 			<email>hnxyhcwdl1003@163.com</email>
 			<roles>
 				<role>developer</role>
@@ -392,9 +392,9 @@
 		<maven-surefire-plugin.vertsion>2.21.0</maven-surefire-plugin.vertsion>
 		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
 		<maven-nexus-staging-plugin.version>1.6.8</maven-nexus-staging-plugin.version>
-		<pf4j.version>2.6.0</pf4j.version>
+		<pf4j.version>3.2.0</pf4j.version>
 		<servlet-api.version>3.0.1</servlet-api.version>
-		<shiro-biz.version>1.0.4.RELEASE</shiro-biz.version>
+		<shiro-biz.version>1.0.8-SNAPSHOT</shiro-biz.version>
 		<slf4j.version>1.7.21</slf4j.version>
 	</properties>
 
@@ -445,7 +445,7 @@
 			<!-- ###################### Shiro ###################### -->
 
 			<dependency>
-			    <groupId>com.github.vindell</groupId>
+			    <groupId>com.github.hiwepy</groupId>
 				<artifactId>shiro-biz</artifactId>
 				<version>${shiro-biz.version}</version>
 			</dependency>
@@ -481,7 +481,7 @@
 		</dependency>
 		
 		<dependency>
-		    <groupId>com.github.vindell</groupId>
+		    <groupId>com.github.hiwepy</groupId>
 			<artifactId>shiro-biz</artifactId>
 		</dependency>
 		 

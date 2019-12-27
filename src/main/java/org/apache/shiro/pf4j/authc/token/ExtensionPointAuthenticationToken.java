@@ -16,11 +16,11 @@
 package org.apache.shiro.pf4j.authc.token;
 
 import org.apache.shiro.biz.authc.token.DefaultAuthenticationToken;
-import org.apache.shiro.biz.authc.token.LoginType;
 
 /**
  * Pf4j ExtensionPoint Authentication Token
- * @author 		： <a href="https://github.com/vindell">vindell</a>
+ * 
+ * @author ： <a href="https://github.com/vindell">vindell</a>
  */
 @SuppressWarnings("serial")
 public class ExtensionPointAuthenticationToken extends DefaultAuthenticationToken {
@@ -29,77 +29,38 @@ public class ExtensionPointAuthenticationToken extends DefaultAuthenticationToke
 		super();
 	}
 
-	public ExtensionPointAuthenticationToken(String username, String password) {
-		super(username, password);
+	public ExtensionPointAuthenticationToken(String username, char[] password, boolean rememberMe, String host) {
+		super(username, password, rememberMe, host);
 	}
 
-	public ExtensionPointAuthenticationToken(String username, String password, LoginType loginType) {
-		super(username, password, loginType);
+	public ExtensionPointAuthenticationToken(String username, char[] password, boolean rememberMe) {
+		super(username, password, rememberMe);
 	}
 
-	public ExtensionPointAuthenticationToken(String username, char[] password) {
-		super(username, password);
+	public ExtensionPointAuthenticationToken(String username, char[] password, String captcha, boolean rememberMe,
+			String host) {
+		super(username, password, captcha, rememberMe, host);
 	}
 
-	public ExtensionPointAuthenticationToken(String username, char[] password, LoginType loginType) {
-		super(username, password, loginType);
+	public ExtensionPointAuthenticationToken(String username, char[] password, String captcha, String host) {
+		super(username, password, captcha, host);
 	}
 
-	public ExtensionPointAuthenticationToken(String username, String password, String captcha) {
-		super(username, password, captcha);
+	public ExtensionPointAuthenticationToken(String username, String password, boolean rememberMe, String host) {
+		super(username, password, rememberMe, host);
 	}
 
-	public ExtensionPointAuthenticationToken(String username, String password, String captcha, LoginType loginType) {
-		super(username, password, captcha, loginType);
+	public ExtensionPointAuthenticationToken(String username, String password, boolean rememberMe) {
+		super(username, password, rememberMe);
 	}
 
-	public ExtensionPointAuthenticationToken(String username, char[] password, String captcha) {
-		super(username, password, captcha);
+	public ExtensionPointAuthenticationToken(String username, String password, String captcha, boolean rememberMe,
+			String host) {
+		super(username, password, captcha, rememberMe, host);
 	}
 
-	public ExtensionPointAuthenticationToken(String username, char[] password, String captcha, LoginType loginType) {
-		super(username, password, captcha, loginType);
+	public ExtensionPointAuthenticationToken(String username, String password, String captcha, String host) {
+		super(username, password, captcha, host);
 	}
 
-	public ExtensionPointAuthenticationToken(String username, String password, String userType, String captcha) {
-		this(username, password != null ? password.toCharArray() : null, userType, captcha);
-	}
-
-	public ExtensionPointAuthenticationToken(String username, char[] password, String userType, String captcha) {
-		super(username, password, userType, captcha);
-	}
-
-	public ExtensionPointAuthenticationToken(String username, String password, String userType, boolean rememberMe) {
-		super(username, password, userType, rememberMe);
-	}
-
-	public ExtensionPointAuthenticationToken(String username, char[] password, String userType, boolean rememberMe) {
-		super(username, password, userType, rememberMe);
-	}
-
-	public ExtensionPointAuthenticationToken(String username, String password, String userType, String host,
-			boolean rememberMe) {
-		super(username, password, userType, host, rememberMe);
-	}
-
-	public ExtensionPointAuthenticationToken(String username, char[] password, String userType, String host,
-			boolean rememberMe) {
-		super(username, password, userType, host, rememberMe);
-	}
-
-	public ExtensionPointAuthenticationToken(String username, String password, String userType, String captcha, String host,
-			boolean rememberMe) {
-		super(username, password, userType, captcha, host, rememberMe);
-	}
-
-	public ExtensionPointAuthenticationToken(String username, char[] password, String userType, String captcha, String host,
-			boolean rememberMe) {
-		super(username, password, userType, captcha, host, rememberMe);
-	}
-
-	public ExtensionPointAuthenticationToken(String username, char[] password, String userType, String captcha, String host,
-			boolean rememberMe, LoginType loginType) {
-		super(username, password, userType, captcha, host, rememberMe, loginType);
-	}
-	
 }

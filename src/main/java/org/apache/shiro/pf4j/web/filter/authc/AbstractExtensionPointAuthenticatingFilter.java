@@ -100,7 +100,7 @@ public abstract class AbstractExtensionPointAuthenticatingFilter extends Abstrac
 	}
 	
 	@Override
-	protected boolean onAccessFailure(AuthenticationToken token, Exception e, ServletRequest request,
+	protected boolean onAccessFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request,
 			ServletResponse response) {
 		return getAuthcPoint(request, response).onAccessFailure(token, e, request, response);
 	}

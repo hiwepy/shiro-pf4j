@@ -50,13 +50,13 @@ import org.slf4j.LoggerFactory;
  * @author <a href="https://github.com/vindell">vindell</a>
  */
 @SuppressWarnings("unchecked")
-public abstract class AuthorizingRealmExtensionPoint<T> extends AuthorizingRealm  implements ExtensionPoint{
+public abstract class AuthorizingRealmExtensionPoint extends AuthorizingRealm  implements ExtensionPoint{
 
 	private static final Logger LOG = LoggerFactory.getLogger(AbstractAuthorizingRealm.class);
 
 	//realm listeners
 	protected List<AuthorizingRealmListener> realmsListeners;
-	private ThreadLocal<PrincipalRepositoryExtensionPoint<T>> THREAD_LOCAL = new ThreadLocal<PrincipalRepositoryExtensionPoint<T>>();
+	private ThreadLocal<PrincipalRepositoryExtensionPoint> THREAD_LOCAL = new ThreadLocal<PrincipalRepositoryExtensionPoint>();
 	private PluginManager pluginManager;
 	    
 	/**
@@ -75,8 +75,8 @@ public abstract class AuthorizingRealmExtensionPoint<T> extends AuthorizingRealm
     	
     	Set<String> permissionsSet, rolesSet = null;
 		if(principals.asList().size() <= 1){
-			permissionsSet = getRepositoryPoint().getPermissions((T) principals.getPrimaryPrincipal());
-			rolesSet = getRepositoryPoint().getRoles((T) principals.getPrimaryPrincipal());
+			permissionsSet = getRepositoryPoint().getPermissions( principals.getPrimaryPrincipal());
+			rolesSet = getRepositoryPoint().getRoles( principals.getPrimaryPrincipal());
 		}else{
 			permissionsSet = getRepositoryPoint().getPermissions(principals.asSet());
 			rolesSet = getRepositoryPoint().getRoles(principals.asSet());
@@ -129,7 +129,7 @@ public abstract class AuthorizingRealmExtensionPoint<T> extends AuthorizingRealm
 				if(ex != null || null == info){
 					realmListener.onFailure(this, token, ex);
 				}else{
-					realmListener.onSuccess(this, info, SecurityUtils.getSubject().getSession());
+					realmListener.onSuccess(this, info);
 				}
 			}
 		}
@@ -145,13 +145,13 @@ public abstract class AuthorizingRealmExtensionPoint<T> extends AuthorizingRealm
 		clearCachedAuthorizationInfo(SecurityUtils.getSubject().getPrincipals());
 	}
 	
-	protected PrincipalRepositoryExtensionPoint<T> getRepositoryPoint() {
+	protected PrincipalRepositoryExtensionPoint getRepositoryPoint() {
 		
 		WebSubject subject = SubjectUtils.getWebSubject();
 		ServletRequest request = subject.getServletRequest();
 		ServletResponse response = subject.getServletResponse();
 		
-		PrincipalRepositoryExtensionPoint<T> authcPoint = THREAD_LOCAL.get();
+		PrincipalRepositoryExtensionPoint authcPoint = THREAD_LOCAL.get();
 		if(authcPoint == null) {
 			String pluginId =  this.getPluginId(request, response);
 			// 检查插件是否加载
@@ -172,7 +172,7 @@ public abstract class AuthorizingRealmExtensionPoint<T> extends AuthorizingRealm
 				// 判断类型
 				if(mapping != null && StringUtils.equals(mapping.id(), extensionId) 
 						&& extension instanceof PrincipalRepositoryExtensionPoint) {
-					authcPoint = (PrincipalRepositoryExtensionPoint<T>) extension;
+					authcPoint = (PrincipalRepositoryExtensionPoint) extension;
 					THREAD_LOCAL.set(authcPoint);
 					break;
 				}

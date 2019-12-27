@@ -18,5 +18,5 @@ package org.apache.shiro.pf4j.authz.point;
 import org.apache.shiro.biz.authz.principal.ShiroPrincipalRepository;
 import org.pf4j.ExtensionPoint;
 
-public interface PrincipalRepositoryExtensionPoint<T> extends ExtensionPoint, ShiroPrincipalRepository<T>  {
+public interface PrincipalRepositoryExtensionPoint extends ExtensionPoint, ShiroPrincipalRepository  {
 }

@@ -3,7 +3,6 @@ package org.apache.shiro.pf4j.realm;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import org.apache.shiro.biz.authz.principal.ShiroPrincipal;
 import org.apache.shiro.pf4j.authc.token.ExtensionPointAuthenticationToken;
 import org.apache.shiro.pf4j.utils.ExtensionPointUtils;
 
@@ -11,7 +10,7 @@ import org.apache.shiro.pf4j.utils.ExtensionPointUtils;
  * Default ExtensionPoint AuthorizingRealm
  * @author 		： <a href="https://github.com/vindell">vindell</a>
  */
-public class DefaultExtensionPointAuthorizingRealm extends AuthorizingRealmExtensionPoint<ShiroPrincipal> {
+public class DefaultExtensionPointAuthorizingRealm extends AuthorizingRealmExtensionPoint {
 
 	private String extensionParamName = ExtensionPointUtils.EXTENSION_PARAM;
     private String pluginParamName = ExtensionPointUtils.PLUGINID_PARAM;
