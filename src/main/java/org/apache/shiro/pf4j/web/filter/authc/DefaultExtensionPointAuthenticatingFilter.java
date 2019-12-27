@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, vindell (https://github.com/vindell).
+ * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -22,7 +22,7 @@ import org.apache.shiro.pf4j.utils.ExtensionPointUtils;
 
 /**
  * Default ExtensionPoint 认证 (authentication)过滤器
- * @author ： <a href="https://github.com/vindell">vindell</a>
+ * @author ： <a href="https://github.com/hiwepy">hiwepy</a>
  */
 public class DefaultExtensionPointAuthenticatingFilter extends AbstractExtensionPointAuthenticatingFilter {
 

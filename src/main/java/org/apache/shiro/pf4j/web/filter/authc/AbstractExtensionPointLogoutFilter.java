@@ -11,7 +11,7 @@ import org.pf4j.PluginManager;
 
 /**
  * 扩展Shiro登出逻辑，增加监听回调接口
- * @author 		： <a href="https://github.com/vindell">vindell</a>
+ * @author 		： <a href="https://github.com/hiwepy">hiwepy</a>
  */
 public abstract class AbstractExtensionPointLogoutFilter extends AbstractLogoutFilter {
 
