@@ -5,7 +5,7 @@ Shiro Extension Whith Pf4j
 
 ``` xml
 <dependency>
-	<groupId>com.github.vindell</groupId>
+	<groupId>com.github.hiwepy</groupId>
 	<artifactId>shiro-pf4j</artifactId>
 	<version>${project.version}</version>
 </dependency>
