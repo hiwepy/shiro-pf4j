@@ -5,7 +5,7 @@
 
 	<groupId>com.github.hiwepy</groupId>
 	<artifactId>shiro-pf4j</artifactId>
-	<version>1.0.1.RELEASE</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<description>Shiro Extension Whith Pf4j</description>
 	<name>${project.groupId}:${project.artifactId}</name>
 	<url>https://github.com/hiwepy/${project.artifactId}</url>
