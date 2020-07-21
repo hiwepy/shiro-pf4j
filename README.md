@@ -7,6 +7,6 @@ Shiro Extension Whith Pf4j
 <dependency>
 	<groupId>com.github.hiwepy</groupId>
 	<artifactId>shiro-pf4j</artifactId>
-	<version>${project.version}</version>
+	<version>1.0.1.RELEASE</version>
 </dependency>
 ```
